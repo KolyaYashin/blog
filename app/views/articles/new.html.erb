@@ -1,5 +1,7 @@
 <h1>New Article</h1>
 
+<%= link_to 'Back', articles_path%>
+
 <%= form_with scope: :article, url: articles_path, local: true do |form|%>
 <p>
 	<%= form.label :title%><br>
