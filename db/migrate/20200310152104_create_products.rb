@@ -7,9 +7,13 @@ class CreateProducts < ActiveRecord::Migration[5.2]
     end
     	reversible do |dir|
     		change_table :products do |t|
-    			dir.up {}
-    			dir.down {}
+    			dir.up { t.change :name, :product_name}
+    			dir.down { t.change :name, :p_name}
     		end
     	end
+
+    add_foreign_key :articles, :authors
+
+
   end
 end
