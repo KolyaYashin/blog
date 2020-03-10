@@ -4,13 +4,12 @@ class CreateProducts < ActiveRecord::Migration[5.2]
     	t.string :name
     	t.text :description
     	t.timestamps
-
+    end
     	reversible do |dir|
     		change_table :products do |t|
-    			dir.up { t.change :price, :string}
-    			dir.down {t.change :price, :integer}
+    			dir.up {}
+    			dir.down {}
     		end
     	end
-    end
   end
 end
