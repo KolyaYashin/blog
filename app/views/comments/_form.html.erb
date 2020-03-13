@@ -6,14 +6,14 @@
 
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
 
-<% if .errors.any? %>
+<% if @article.comments.find(params[:id]).errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(.errors.count, "error") %> 
+        <%= pluralize(@article.comments.find(params[:id]).errors.count, "error") %> 
         :
       </h2>
       <ul>
-        <% .errors.full_messages.each do |msg| %>
+        <% @article.comments.errors.find(params[:id]).full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
