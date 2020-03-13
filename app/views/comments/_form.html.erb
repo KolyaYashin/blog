@@ -1,6 +1,26 @@
 
 
+
+<h2>Add a comment: </h2>
+
+
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+
+<% if .errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(.errors.count, "error") %> 
+        :
+      </h2>
+      <ul>
+        <% .errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <p>
     <%= form.label :commenter %><br>
     <%= form.text_field :commenter %>
